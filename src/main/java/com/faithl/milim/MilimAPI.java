@@ -17,9 +17,7 @@ public class MilimAPI {
 
     public static AttributeManager attributeManager;
 
-    public static void init(String plugin) {
-        attributeManager = AttributeManager.getInstance(plugin);
-    }
+    public static void init(String plugin) { attributeManager = AttributeManager.getInstance(plugin); }
 
     public static void setAttribute(String source, LivingEntity livingEntity, List<String> attribute) {
         attributeManager.setAttribute(source, livingEntity, attribute);
