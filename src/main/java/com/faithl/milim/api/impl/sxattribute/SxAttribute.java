@@ -1,7 +1,6 @@
 package com.faithl.milim.api.impl.sxattribute;
 
 import com.faithl.milim.AttributeManager;
-import com.faithl.milim.Milim;
 import com.faithl.milim.util.Collection;
 import github.saukiya.sxattribute.SXAttribute;
 import org.bukkit.entity.LivingEntity;
@@ -22,40 +21,40 @@ public class SxAttribute extends AttributeManager {
 
     @Override
     public void setAttribute(String source, LivingEntity livingEntity, List<String> attribute) {
-        SXAttribute.getApi().removeEntityAPIData(Milim.instance.getClass(), livingEntity.getUniqueId());
-        SXAttribute.getApi().setEntityAPIData(Milim.instance.getClass(), livingEntity.getUniqueId(), SXAttribute.getApi().loadListData(attribute));
+        SXAttribute.getApi().removeEntityAPIData(source.getClass(), livingEntity.getUniqueId());
+        SXAttribute.getApi().setEntityAPIData(source.getClass(), livingEntity.getUniqueId(), SXAttribute.getApi().loadListData(attribute));
         SXAttribute.getApi().updateData(livingEntity);
     }
 
     @Override
     public void setAttribute(String source, LivingEntity livingEntity, HashMap<String, Number[]> attribute) {
-        SXAttribute.getApi().removeEntityAPIData(Milim.instance.getClass(), livingEntity.getUniqueId());
-        List<String> list = new ArrayList<String>();
+        SXAttribute.getApi().removeEntityAPIData(source.getClass(), livingEntity.getUniqueId());
+        List<String> list = new ArrayList<>();
         for (String key : attribute.keySet()) {
             list.add(key + ": " + Arrays.toString(attribute.get(key)));
         }
-        SXAttribute.getApi().setEntityAPIData(Milim.instance.getClass(), livingEntity.getUniqueId(), SXAttribute.getApi().loadListData(list));
+        SXAttribute.getApi().setEntityAPIData(source.getClass(), livingEntity.getUniqueId(), SXAttribute.getApi().loadListData(list));
         SXAttribute.getApi().updateData(livingEntity);
     }
 
     @Override
     public void setAttribute(String source, LivingEntity livingEntity, String attribute) {
-        SXAttribute.getApi().removeEntityAPIData(Milim.instance.getClass(), livingEntity.getUniqueId());
-        SXAttribute.getApi().setEntityAPIData(Milim.instance.getClass(), livingEntity.getUniqueId(), SXAttribute.getApi().loadListData(Collection.asList(attribute)));
+        SXAttribute.getApi().removeEntityAPIData(source.getClass(), livingEntity.getUniqueId());
+        SXAttribute.getApi().setEntityAPIData(source.getClass(), livingEntity.getUniqueId(), SXAttribute.getApi().loadListData(Collection.asList(attribute)));
         SXAttribute.getApi().updateData(livingEntity);
     }
 
     @Override
     public void setAttribute(String source, LivingEntity livingEntity, ItemStack itemStack) {
-        SXAttribute.getApi().removeEntityAPIData(Milim.instance.getClass(), livingEntity.getUniqueId());
-        SXAttribute.getApi().setEntityAPIData(Milim.instance.getClass(), livingEntity.getUniqueId(), SXAttribute.getApi().loadListData(
+        SXAttribute.getApi().removeEntityAPIData(source.getClass(), livingEntity.getUniqueId());
+        SXAttribute.getApi().setEntityAPIData(source.getClass(), livingEntity.getUniqueId(), SXAttribute.getApi().loadListData(
                 Objects.requireNonNull(itemStack.getItemMeta()).getLore()));
         SXAttribute.getApi().updateData(livingEntity);
     }
 
     @Override
     public void deleteAttribute(String source, LivingEntity livingEntity) {
-        SXAttribute.getApi().removeEntityAPIData(Milim.instance.getClass(), livingEntity.getUniqueId());
+        SXAttribute.getApi().removeEntityAPIData(source.getClass(), livingEntity.getUniqueId());
         SXAttribute.getApi().updateData(livingEntity);
     }
 

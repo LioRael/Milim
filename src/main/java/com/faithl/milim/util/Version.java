@@ -25,6 +25,8 @@ public class Version implements Comparable<Version> {
             version = new int[]{-1, Integer.parseInt(args[0]), Integer.parseInt(args[1])};
         } else if (args.length == 3) {
             version = new int[]{Integer.parseInt(args[0]), Integer.parseInt(args[1]), Integer.parseInt(args[2])};
+        } else if (args.length == 4){
+            version = new int[]{Integer.parseInt(args[0]), Integer.parseInt(args[1]), Integer.parseInt(args[2])};
         } else {
             throw new VersionFormatException(source);
         }
