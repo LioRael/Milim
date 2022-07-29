@@ -15,9 +15,11 @@ import java.util.List;
  **/
 public class MilimAPI {
 
+    public static Milim milim;
     public static AttributeManager attributeManager;
 
     public static void init(String plugin) {
+        milim = new Milim();
         attributeManager = AttributeManager.getInstance(plugin);
     }
 
