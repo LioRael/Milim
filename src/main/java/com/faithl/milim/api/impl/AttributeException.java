@@ -13,38 +13,40 @@ import java.util.List;
  **/
 public class AttributeException extends AttributeManager {
 
+    String message;
     public AttributeException(Throwable cause) {
         cause.printStackTrace();
+        message = cause.getLocalizedMessage();
     }
 
     @Override
     public Object getData(LivingEntity livingEntity) {
-        throw new IllegalAccessError("Attribute plugin hook failed: ${cause.localizedMessage}");
+        throw new IllegalAccessError("Attribute plugin hook failed: " + message);
     }
 
     @Override
     public void setAttribute(String source, LivingEntity livingEntity, List<String> attribute) {
-        throw new IllegalAccessError("Attribute plugin hook failed: ${cause.localizedMessage}");
+        throw new IllegalAccessError("Attribute plugin hook failed: " + message);
     }
 
     @Override
     public void setAttribute(String source, LivingEntity livingEntity, HashMap<String, Number[]> attribute) {
-        throw new IllegalAccessError("Attribute plugin hook failed: ${cause.localizedMessage}");
+        throw new IllegalAccessError("Attribute plugin hook failed: " + message);
     }
 
     @Override
     public void setAttribute(String source, LivingEntity livingEntity, String attribute) {
-        throw new IllegalAccessError("Attribute plugin hook failed: ${cause.localizedMessage}");
+        throw new IllegalAccessError("Attribute plugin hook failed: " + message);
     }
 
     @Override
     public void setAttribute(String source, LivingEntity livingEntity, ItemStack itemStack) {
-        throw new IllegalAccessError("Attribute plugin hook failed: ${cause.localizedMessage}");
+        throw new IllegalAccessError("Attribute plugin hook failed: " + message);
     }
 
     @Override
     public void deleteAttribute(String source, LivingEntity livingEntity) {
-        throw new IllegalAccessError("Attribute plugin hook failed: ${cause.localizedMessage}");
+        throw new IllegalAccessError("Attribute plugin hook failed: " + message);
     }
 
 }

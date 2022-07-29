@@ -30,7 +30,7 @@ public class SxAttribute extends AttributeManager {
     @Override
     public void setAttribute(String source, LivingEntity livingEntity, HashMap<String, Number[]> attribute) {
         SXAttribute.getApi().removeEntityAPIData(Milim.instance.getClass(), livingEntity.getUniqueId());
-        List<String> list = new ArrayList<String>();
+        List<String> list = new ArrayList<>();
         for (String key : attribute.keySet()) {
             list.add(key + ": " + Arrays.toString(attribute.get(key)));
         }
