@@ -10,7 +10,7 @@ import com.skillw.attsystem.api.status.NumberStatus
 import org.bukkit.entity.LivingEntity
 import org.bukkit.inventory.ItemStack
 
-class AttrSystem:AttributeManager() {
+class AS_KT:AttributeManager() {
     override fun getData(livingEntity: LivingEntity): Any {
         return livingEntity.getAttrData()?.toAttributeData()!!
     }
@@ -28,11 +28,11 @@ class AttrSystem:AttributeManager() {
         livingEntity.removeAttribute(source)
         livingEntity.getAttrData()?.forEach { _, attrData ->
             attrData.filter { (att,_)-> attribute.contains(att.key) && att.readPattern is ReadGroup
-            }.forEach loop@ { (attr, vaule) ->
+            }.forEach loop@ { (attr, value) ->
                 val num = attribute[attr.key] ?:return@loop
-                vaule as NumberStatus
-                vaule["valueMin"] = num[0].toDouble()
-                vaule["valueMax"] = num[1].toDouble()
+                value as NumberStatus
+                value["valueMin"] = num[0].toDouble()
+                value["valueMax"] = num[1].toDouble()
             }
         }
     }
