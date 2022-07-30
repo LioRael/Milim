@@ -3,6 +3,7 @@ package com.faithl.milim;
 import com.faithl.milim.api.impl.AttributeException;
 import com.faithl.milim.api.impl.attributeplus.AttributePlus;
 import com.faithl.milim.api.impl.attributeplus.AttributePlusLegacy;
+import com.faithl.milim.api.impl.attributesystem.AttrSystem;
 import com.faithl.milim.api.impl.originattribute.OriginAttribute;
 import com.faithl.milim.api.impl.sxattribute.SxAttribute;
 import com.faithl.milim.util.Version;
@@ -91,6 +92,9 @@ public abstract class AttributeManager {
                 case "SX":
                 case "SX-Attribute":
                     return new SxAttribute();
+                case "AS":
+                case "AttributeSystem":
+                    return new AttrSystem();
                 default:
                     return new AttributeException(new Throwable("Wrong attribute plugin"));
             }
